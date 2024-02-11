@@ -1,4 +1,4 @@
-package lib.config;
+package config;
 
 import entity.Customer;
 import org.hibernate.Session;
@@ -11,24 +11,16 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 public class SessionFactoryConfig {
 
     private static SessionFactoryConfig factoryConfig;
+    private final SessionFactory sessionFactory;
 
     private SessionFactoryConfig() {
         // private constructor
 
-    }
-
-    public static SessionFactoryConfig getInstance() {
-        return  (factoryConfig == null) ?
-            factoryConfig = new SessionFactoryConfig()
-                : factoryConfig;
-    }
-
-    public Session getSession() {
         //1. create a service registry
         StandardServiceRegistry serviceRegistry =
                 new StandardServiceRegistryBuilder()
-                .configure()
-                .build();
+                        .configure()
+                        .build();
 
         //2. create a metadata source
 
@@ -40,8 +32,19 @@ public class SessionFactoryConfig {
                 .build();
 
         //3. create a session factory
-        SessionFactory sessionFactory = metadata
+         sessionFactory = metadata
                 .buildSessionFactory();
+
+    }
+
+    public static SessionFactoryConfig getInstance() {
+        return  (factoryConfig == null) ?
+            factoryConfig = new SessionFactoryConfig()
+                : factoryConfig;
+    }
+
+    public Session getSession() {
+
 
         //4. create a session and open a transaction
        return sessionFactory.openSession();
