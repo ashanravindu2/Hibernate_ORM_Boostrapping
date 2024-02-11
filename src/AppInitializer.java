@@ -14,10 +14,11 @@ public class AppInitializer {
         Transaction transaction = session.beginTransaction();
 
         Customer customer = new Customer();
-        customer.setId(6);
+        customer.setId(9);
         customer.setName("John Doe");
         customer.setAddress("Colombo");
         customer.setSalary(100000);
+        customer.setPhone(78423);
 
         session.save(customer);
         transaction.commit();
@@ -26,7 +27,7 @@ public class AppInitializer {
 
 //get session
 
-        System.out.println("Get Customer");
+        System.out.print("Get Customer");
         Session getSession = SessionFactoryConfig
                 .getInstance()
                 .getSession();

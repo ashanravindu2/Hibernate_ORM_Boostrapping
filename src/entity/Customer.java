@@ -26,6 +26,17 @@ public class Customer {
     @Column(name = "customer_salary")
     private double salary;
 
+    @Column(name = "customer_phone")
+    private int phone;
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
     public int getId() {
         return id;
     }
@@ -58,8 +69,10 @@ public class Customer {
         this.salary = salary;
     }
 
+
+
     public String toString() {
-        return "Customer [id=" + id + ", name=" + name + ", address=" + address + ", salary=" + salary + "]";
+        return "Customer [id=" + id + ", name=" + name + ", address=" + address + ", salary=" + salary + ",phone="+phone+"]";
     }
 
     public Customer() {

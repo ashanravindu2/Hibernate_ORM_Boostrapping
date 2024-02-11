@@ -32,14 +32,14 @@ public class SessionFactoryConfig {
                 .build();
 
         //3. create a session factory
-         sessionFactory = metadata
+        sessionFactory = metadata
                 .buildSessionFactory();
 
     }
 
     public static SessionFactoryConfig getInstance() {
         return  (factoryConfig == null) ?
-            factoryConfig = new SessionFactoryConfig()
+                factoryConfig = new SessionFactoryConfig()
                 : factoryConfig;
     }
 
@@ -47,8 +47,8 @@ public class SessionFactoryConfig {
 
 
         //4. create a session and open a transaction
-       return sessionFactory.openSession();
+        return sessionFactory.openSession();
 
-       //5. close the session
+        //5. close the session
     }
 }
