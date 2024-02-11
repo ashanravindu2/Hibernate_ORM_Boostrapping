@@ -1,4 +1,5 @@
 import config.SessionFactoryConfig;
+import embedded.NameIdentifier;
 import entity.Customer;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -14,11 +15,12 @@ public class AppInitializer {
         Transaction transaction = session.beginTransaction();
 
         Customer customer = new Customer();
-        customer.setId(9);
-        customer.setName("John Doe");
+        customer.setId(1);
+        customer.setName(getNameIndentifier());
         customer.setAddress("Colombo");
         customer.setSalary(100000);
-        customer.setPhone(78423);
+        customer.setPhone(345);
+        customer.setAge(21);
 
         session.save(customer);
         transaction.commit();
@@ -32,7 +34,7 @@ public class AppInitializer {
                 .getInstance()
                 .getSession();
 
-        Customer exists = getSession.get(Customer.class,4);
+        Customer exists = getSession.get(Customer.class,1);
         System.out.println(exists);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,7 +48,7 @@ public class AppInitializer {
 
         Transaction updateTransaction = updateSession.beginTransaction();
 
-        Customer existsCus = updateSession.get(Customer.class,4);
+        Customer existsCus = updateSession.get(Customer.class,1);
         existsCus.setAddress("Matara");
         updateSession.update(existsCus);
         updateTransaction.commit();
@@ -55,15 +57,24 @@ public class AppInitializer {
         ///////////////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("Delete Customer");
 //delete session
-        Session deleteSession = SessionFactoryConfig
+        /*Session deleteSession = SessionFactoryConfig
                 .getInstance()
                 .getSession();
 
         Transaction deleteTransaction = deleteSession.beginTransaction();
 
-        Customer existedeleteCus = deleteSession.get(Customer.class,4);
+        Customer existedeleteCus = deleteSession.get(Customer.class,1);
         deleteSession.delete(existedeleteCus);
         deleteTransaction.commit();
-        deleteSession.close();
+        deleteSession.close();*/
+    }
+
+    private static NameIdentifier getNameIndentifier() {
+        NameIdentifier nameIdentifier = new NameIdentifier();
+        nameIdentifier.setFirstName("Saman");
+        nameIdentifier.setMiddleName("Amila");
+        nameIdentifier.setLastName("Perera");
+
+        return  nameIdentifier;
     }
 }
