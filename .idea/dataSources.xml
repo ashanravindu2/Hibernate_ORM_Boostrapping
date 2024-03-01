@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="05c11adc-7092-4a71-9c97-00f24512ec04">
+    <data-source source="LOCAL" name="hibernate_orm@localhost" uuid="c50b6714-774a-40cc-b6cd-472c8780a294">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>Hibernate
-
-E:/IJSE ALL/ORM/Hibernate_ORM_Boostrapping/src/hibernate.cfg.xml</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/hibernateorm</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/hibernate_orm</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
@@ -17,9 +13,13 @@ E:/IJSE ALL/ORM/Hibernate_ORM_Boostrapping/src/hibernate.cfg.xml</remarks>
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="hibernate_orm@localhost" uuid="e07e2322-b82f-42e6-a4e8-dbc63866db29">
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="83de3428-de8f-4042-ab28-9a2cdad6b646">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+E:/IJSE ALL/ORM/Hibernate_ORM_Boostrapping/src/hibernate.cfg.xml</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/hibernate_orm</jdbc-url>
       <jdbc-additional-properties>

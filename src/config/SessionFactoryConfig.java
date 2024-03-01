@@ -1,12 +1,9 @@
 package config;
 
-import entity.Customer;
+import entity.Customer_old;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 public class SessionFactoryConfig {
 
@@ -17,22 +14,26 @@ public class SessionFactoryConfig {
         // private constructor
 
         //1. create a service registry
-        StandardServiceRegistry serviceRegistry =
-                new StandardServiceRegistryBuilder()
-                        .configure()
-                        .build();
+
+
 
         //2. create a metadata source
-
-        Metadata metadata = new MetadataSources(serviceRegistry)
+/*
+        sessionFactory = new MetadataSources( new StandardServiceRegistryBuilder()
+                .configure()
+                .build())
                 .addAnnotatedClass(Customer.class)//addAnnotatedClass() is used to add the annotated class to the metadata
 
                 // addAnnotatedClass() is used to add the annotated class to the metadata
                 .getMetadataBuilder()
-                .build();
+                .build()
+                .buildSessionFactory();*/
 
-        //3. create a session factory
-        sessionFactory = metadata
+
+        //short simplify
+        sessionFactory= new Configuration()
+                .configure()
+                .addAnnotatedClass(Customer_old.class)
                 .buildSessionFactory();
 
     }
